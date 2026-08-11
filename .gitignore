@@ -1,0 +1,12 @@
+target/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+*.log
+dependency-check-report.*
+.DS_Store
+ck-reports/
+.mvn/wrapper/maven-wrapper.jar

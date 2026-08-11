@@ -1,0 +1,3 @@
+# Enable auto-env through the sdkman_auto_env config
+# This project supports Java 17 only
+java=17.0.16-tem
