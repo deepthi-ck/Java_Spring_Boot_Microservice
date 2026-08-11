@@ -1,0 +1,62 @@
+services:
+  eureka-server:
+    build:
+      context: ./eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - ms-network
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+    ports:
+      - "8088:8088"
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+    networks:
+      - ms-network
+
+  customer-service:
+    build:
+      context: ./customer-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+    networks:
+      - ms-network
+
+  product-service:
+    build:
+      context: ./product-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+    networks:
+      - ms-network
+
+  order-service:
+    build:
+      context: ./order-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - eureka-server
+      - customer-service
+      - product-service
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+    networks:
+      - ms-network
+
+networks:
+  ms-network:
+    driver: bridge
