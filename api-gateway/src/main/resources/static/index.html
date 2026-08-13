@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Overview | Commerce Mesh</title>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="brand-mark">CM</div>
+        <div class="brand">Commerce Mesh<span>Java Spring Boot Microservice</span></div>
+        <nav class="nav">
+          <a href="/index.html">Overview</a>
+          <a href="/customers.html">Customers</a>
+          <a href="/products.html">Products</a>
+          <a href="/orders.html">Orders</a>
+          <a href="/topology.html">Service Topology</a>
+        </nav>
+        <div class="nav-meta">Entry via API Gateway · Eureka discovery · Customer / Product / Order services</div>
+      </div>
+    </aside>
+    <main class="content">
+      <div class="topbar">
+        <div>
+          <h1>Overview</h1>
+          <p class="subtitle">Operate the commerce mesh through the gateway. Domain traffic is routed to registered microservices over Eureka.</p>
+        </div>
+        <div class="badge" id="runtime-badge">Checking gateway…</div>
+      </div>
+      <div id="flash" class="flash" role="status"></div>
+      <div class="card hero-panel" style="margin-bottom:20px;">
+        <h2>Commerce Mesh control plane</h2>
+        <p>Register buyers, publish catalog SKUs, and place cross-service orders — all through the Spring Cloud Gateway on port 8088.</p>
+        <div class="actions hero-actions">
+          <a class="btn" href="/customers.html">Register a customer</a>
+          <a class="btn secondary" href="/products.html">Publish a product</a>
+          <a class="btn secondary" href="/orders.html">Place an order</a>
+        </div>
+      </div>
+      <div id="dashboard-stats" class="grid stats"></div>
+      <div class="grid two">
+        <div class="card">
+          <h2>Quick navigation</h2>
+          <div class="actions">
+            <a class="btn" href="/customers.html">Customers</a>
+            <a class="btn secondary" href="/products.html">Products</a>
+            <a class="btn secondary" href="/orders.html">Orders</a>
+            <a class="btn secondary" href="/topology.html">Topology</a>
+          </div>
+          <p class="footer-note">Use the left menu for full page-to-page navigation. Pages are served as built-in gateway static resources.</p>
+        </div>
+        <div class="card">
+          <h2>Live service probes</h2>
+          <div id="service-probes" class="service-list"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/js/app.js"></script>
+</body>
+</html>
