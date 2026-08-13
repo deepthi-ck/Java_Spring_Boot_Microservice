@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products | Commerce Mesh</title>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="brand-mark">CM</div>
+        <div class="brand">Commerce Mesh<span>Java Spring Boot Microservice</span></div>
+        <nav class="nav">
+          <a href="/index.html">Overview</a>
+          <a href="/customers.html">Customers</a>
+          <a href="/products.html">Products</a>
+          <a href="/orders.html">Orders</a>
+          <a href="/topology.html">Service Topology</a>
+        </nav>
+        <div class="nav-meta">Routed to product-service via /products/**</div>
+      </div>
+    </aside>
+    <main class="content">
+      <div class="topbar">
+        <div>
+          <h1>Products</h1>
+          <p class="subtitle">Publish catalog SKUs with pricing and stock. Order service reads unit prices from this service at checkout.</p>
+        </div>
+        <div class="badge" id="runtime-badge">Checking gateway…</div>
+      </div>
+      <div id="flash" class="flash" role="status"></div>
+      <div class="grid two">
+        <div class="card">
+          <h2>Publish product</h2>
+          <form id="product-form" class="panel">
+            <div class="row">
+              <label>Product name
+                <input id="product-name" name="name" type="text" required maxlength="120"
+                       placeholder="e.g. Contoured Ceramic Mug">
+              </label>
+              <label>SKU
+                <input id="product-sku" name="sku" type="text" required maxlength="40"
+                       placeholder="e.g. MUG-CER-240">
+              </label>
+            </div>
+            <div class="row">
+              <label>Unit price (USD)
+                <input id="product-price" name="price" type="number" required min="0" step="0.01"
+                       placeholder="e.g. 18.50">
+              </label>
+              <label>Stock quantity
+                <input id="product-stock" name="stock" type="number" required min="0" step="1"
+                       placeholder="e.g. 120">
+              </label>
+            </div>
+            <div class="actions">
+              <button type="submit">Save product</button>
+              <a class="btn secondary" href="/orders.html">Create an order</a>
+            </div>
+          </form>
+        </div>
+        <div class="card">
+          <h2>Catalog</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>SKU</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                </tr>
+              </thead>
+              <tbody id="products-body">
+                <tr><td colspan="5" class="empty">Loading products…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <p class="footer-note"><a href="/index.html">Overview</a> · <a href="/customers.html">Customers</a> · <a href="/orders.html">Orders</a> · <a href="/topology.html">Topology</a></p>
+    </main>
+  </div>
+  <script src="/js/app.js"></script>
+</body>
+</html>
